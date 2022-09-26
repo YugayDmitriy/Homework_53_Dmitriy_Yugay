@@ -1,0 +1,20 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$so0X3jDTTR57cb2PAhoRCh$wRTkQv9RkZrnhnJcr1Cpr7pvJNOwkNoQtbsWEHKMy1I=",
+    "last_login": "2022-09-25T20:33:27.551Z",
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "Dmitrijugaj614@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-09-25T10:48:26.116Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
