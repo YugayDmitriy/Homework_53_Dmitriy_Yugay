@@ -16,4 +16,4 @@ def add_item(request):
     context = {
         'item_list': item_list
     }
-    return render(request, 'index.html', context=context)
+    return render(request, 'create.html', context=context)
