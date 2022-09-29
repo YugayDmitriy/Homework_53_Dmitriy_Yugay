@@ -3,10 +3,10 @@ from .models import Item
 
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'status', 'created_at']
+    list_display = ['id', 'name', 'status', 'discription', 'created_at']
     list_filter = ['name']
     search_fields = ['name', 'status']
-    fields = ['name', 'status', 'created_at', 'updated_at']
+    fields = ['name', 'status', 'discription', 'created_at', 'updated_at']
     readonly_fields = ['created_at', 'updated_at']
 
 
