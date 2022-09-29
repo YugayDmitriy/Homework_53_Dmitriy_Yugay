@@ -10,7 +10,7 @@ class Item(models.Model):
 
     name = models.TextField(max_length=200, null=False, blank=False, verbose_name='Наименование')
     status = models.CharField(max_length=13, choices=CHOISES, default='Новая', verbose_name='Статус')
-    discription = models.TextField(max_length=200, null=False, blank=False, verbose_name='Описание')
+    discription = models.TextField(max_length=200, null=True, blank=True, verbose_name='Описание')
     created_at = models.DateField(null=True, default=None, verbose_name='Время окончания')
     updated_at = models.DateField(auto_now=True, verbose_name='Время изменения')
 
