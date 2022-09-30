@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block content %}
+    <div class="mt-5">
+          <table class="table table-bordered">
+          <thead>
+              <tr>
+                 <th scope="col">Вх.№</th>
+                 <th scope="col">Задача</th>
+                 <th scope="col">Статус</th>
+                 <th scope="col">Описание</th>
+                 <th scope="col">Дедлайн</th>
+                 <th scope="col">Редактирование</th>
+                 <th>Удаление</th>
+             </tr>
+          </thead>
+          <tbody>
+             <tr>
+                 <td>{{forloop.counter}}</td>
+                 <td>{{items.name}}</td>
+                 <td>{{items.status}}</td>
+                 <td>{{items.discription}}</td>
+                 <td>{{items.created_at}}</td>
+                 <td>
+                     <a href="{% url 'edit_item' items.id %}" class="btn btn-warning">Изменить</a>
+                 </td>
+                 <td>
+                     <a href="{% url 'delete_item' items.id %}" class="btn btn-danger">Удалить</a>
+                 </td>
+             </tr>
+          </tbody>
+          </table>
+      </div>
+{% endblock content %}
