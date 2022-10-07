@@ -1,12 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from todolist.models import Item
 
 
-def items(request):
+def items_list(request, *args, **kwargs):
     item_list = Item.objects.all()
-    choices = Item.CHOISES
-    context = {
-        'item_list': item_list,
-        'choices': choices
-    }
-    return render(request, 'items_list.html', context=context)
+    if request.method == 'GET':
+        context = {
+            'item_list': item_list,
+        }
+        return render(request, 'items_list.html', context=context)

@@ -1,33 +1,62 @@
 {% extends "index.html" %}
 {% block content %}
-    <form method="POST" action="{%url 'add_item'%}">
-             {% csrf_token %}
+    {% if sel_item %}
+        <form method="POST" action="{%url 'update_item' sel_item.id%}">
+            {% csrf_token %}
             <div class="form-group text-center mt-3">
-              <label for="validationDefaultName" class="form-label">Задача</label>
-                <div class="input-group">
-                <input type="text" class="form-control" name="name" placeholder="Введите задачу" id="validationDefaultName"  aria-describedby="inputGroupPrepend2" required>
-                </div>
+                <label for="inputPrice" class="col-form-label">Задача</label>
+                <input type="text" id="inputPrice" class="form-control" value="{{sel_item.name}}" name="name" placeholder="Введите задачу" aria-describedby="inputGroupPrepend2" required>
             </div>
-            <div class="form-group text-center mt-3">
+                <div class="form-group text-center mt-3">
                 <label>Статус</label>
                 <select class="form-select" name="status" aria-label="Default select example">
                     {% for choice in choices %}
-                    <option value="{{ choice.1}}">{{ choice.1}}</option>
+                    <option value="{{ choice.1 }}">{{ choice.1 }}</option>
                     {% endfor%}
                 </select>
             </div>
             <div class="form-group text-center mt-3">
               <label for="validationDefaultDiscript" class="form-label">Описание</label>
                 <div class="input-group">
-                <input type="text" class="form-control" name="discription" placeholder="Введите задачу" id="validationDefaultDiscript"  aria-describedby="inputGroupPrepend2" required>
+                <input type="text" class="form-control" value="{{sel_item.discription}}" name="discription" placeholder="Введите описание задачи" id="validationDefaultDiscripts"  aria-describedby="inputGroupPrepend2" required>
                 </div>
             </div>
             <div class="form-group text-center mt-3">
-              <label for="validationDefaultDate" class="form-label">Дедлайн задачи</label>
-              <input type="text" class="form-control" name="created_at" placeholder="Введите дату в формате 'YYYY-mm-dd'", id="validationDefaultDate"  aria-describedby="inputGroupPrepend2" required>
+              <label>Дедлайн задачи</label>
+              <input type="text" class="form-control" value="{{sel_item.created_at}}" name="created_at" placeholder="Введите дату" aria-describedby="inputGroupPrepend2" required>
             </div>
             <div class="form-group mt-4 text-center">
-                <button type="submit" class="btn btn-primary">Создать</button>
+                <button type="submit" class="button"><i class="ri-check-line icon"></i><span class="text">Изменить</span></button>
             </div>
           </form>
+          {% else %}
+          <form method="POST" action="{%url 'add_item'%}">
+             {% csrf_token %}
+            <div class="form-group text-center mt-3">
+                <label for="inputPrice" class="col-form-label">Задача</label>
+                <input type="text" id="inputPricee" class="form-control" name="name" placeholder="Введите задачу" aria-describedby="inputGroupPrepend2" required>
+            </div>
+            <div class="form-group text-center mt-3">
+                <label>Статус</label>
+                <select class="form-select" name="status" aria-label="Default select example">
+                    {% for choice in choices %}
+                    <option value="{{ choice.0}}">{{ choice.1}}</option>
+                    {% endfor%}
+                </select>
+            </div>
+            <div class="form-group text-center mt-3">
+              <label for="validationDefaultDiscript" class="form-label">Описание</label>
+                <div class="input-group">
+                <input type="text" class="form-control" name="discription" placeholder="Введите описание задачи" id="validationDefaultDiscript"  aria-describedby="inputGroupPrepend2" required>
+                </div>
+            </div>
+            <div class="form-group text-center mt-3">
+              <label>Дедлайн задачи</label>
+              <input type="text" class="form-control" name="created_at" placeholder="Введите дату в формате 'YYYY-mm-dd'" aria-describedby="inputGroupPrepend2" required>
+            </div>
+            <div class="form-group mt-4 text-center">
+                <button type="submit" class="button"><i class="ri-check-line icon"></i><span class="text">Создать</span></button>
+            </div>
+          </form>
+      {% endif %}
 {% endblock content %}

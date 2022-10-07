@@ -7,4 +7,4 @@ def delete_item(request, myid):
     item = Item.objects.get(id=myid)
     item.delete()
     messages.info(request, 'Задача успешно удалена')
-    return redirect('index')
+    return redirect('items_list')

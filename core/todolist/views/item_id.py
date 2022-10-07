@@ -7,4 +7,3 @@ def items_id(request, myid):
     return render(request, 'items_id.html', context={
         'items': items
     })
-

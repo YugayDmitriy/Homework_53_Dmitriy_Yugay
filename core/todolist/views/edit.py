@@ -11,4 +11,4 @@ def edit_item(request, myid):
         'item_list': item_list,
         'choices': choices
     }
-    return render(request, 'index.html', context=context)
+    return render(request, 'create.html', context=context)
